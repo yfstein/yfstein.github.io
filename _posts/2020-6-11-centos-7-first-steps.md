@@ -73,7 +73,7 @@ Replace with: `Port 5876`
 
 So the default port scanner didnt reach your SSH Port 22 and eventually giving up for the first. That not means that nobody can do additional port scan to find your SSH Port. But basically its absolutely recommended to change the SSH port.
 
-So we have created the additional user "monty" so we dont need to use the root user to login directly over SSH. So wen can change the PermitRootLogin to no.
+So we have created the additional user "monty" so we dont need to use the root user to login directly over SSH. So we can change the PermitRootLogin to no.
 
 Find: `#PermitRootLogin yes`
 
@@ -84,7 +84,7 @@ So now coming the part with the created AuthorizedKeysFile - here we will check 
 
 Find and Check: `AuthorizedKeysFile .ssh/authorized_keys`
 
-So the SSH Daemon can check everyones home folder for the directory .ssh with the authorized_keys file, where the public key for every user is stored by default.
+So the SSH Daemon can check everyones home folder for the directory .ssh with the authorized_keys file, where the public key for every user should be stored. Surely, you can change to every another folder but its a default-recommended way.
 
 
 Because we want to login in the further with our public-key and not with a user-password we will deactivate the PasswordAuthentication:
@@ -93,7 +93,7 @@ Find: `#PasswordAuthentication yes`
 
 Replace with: `PasswordAuthentication no`
 
-So now we coming to a point, where i am self everytime struggling. Should i turn it on, or should i turn it off. But in the last years i got very excited over turning the ChallenegeResponseAuthentication off. But why? So, for the first, i had some servers with a good income of traffic. We never had any corruption, "hacks" or anything like this. After a long internal discussion we decided to create some Honeypots and share the IPs. After just one week their we noted the first brake-in to the system. Sure, the honeypot wasnt secured well, but for testing purposed more than enough - so we decided for the first to still no turn on the ChallenegeResponseAuthentication.
+So now we coming to a point, where i am self everytime struggling. Should i turn it on, or should i turn it off. But in the last years i got very excited over turning the ChallenegeResponseAuthentication off. But why? So, for the first, i had some servers with a good income of traffic and ChallenegeResponseAuthentication turned off since years. We never had any corruption, "hacks" or anything like this. After a long internal discussion we decided to create some Honeypots and share the IPs where ChallenegeResponseAuthentication is turned on. After just one week their we noted the first brake-in to the system. Sure, the honeypot wasnt secured well, but for testing purposed more than enough - so we decided for the first to still no turn on the ChallenegeResponseAuthentication.
 
 check that this line looks like this, mostly its already does:
 Find and Check: `ChallenegeResponseAuthentication no`
@@ -115,7 +115,7 @@ After that we should be able to login as monty with our private key over ssh por
 
 ## Update the system
 
-Because not every system which we are creating on our providers infrastructure is up-to-date. So we will update the repositorys, check for updates and install them:
+Because not every system which we are creating on our providers infrastructure is up-to-date we will update the repositorys, check for updates and install them:
 
 `yum update -y`
 
@@ -140,6 +140,7 @@ Please search for "AllowZoneDrifting" and change the yes to no and remove the ha
 
 `AllowZoneDrifting = no`
 
+Older versions of firewalld had undocumented behavior known as "zone drifting". This allowed packets to ingress multiple zones - this is a violation of zone based firewalls. However, some users rely on this behavior to have a "catch-all" zone, e.g. the default zone. You can enable this if you desire such behavior. It's should be disabled for security reasons.
 
 After we done that we can enable and start the firewall:
 
