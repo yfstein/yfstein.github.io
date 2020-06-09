@@ -1,3 +1,21 @@
+---
+layout:     post
+title:      Create and understand private and public keys
+date:       2020-06-08 12:32:27
+author:     yFStein
+summary:    
+categories: CentOS7
+thumbnail:  heart
+tags:
+ - centos7
+ - publickey
+ - privatekey
+ - ssh
+ - authentication
+---
+
+to be continued...
+
 ## Questions?
 
 [Open an Issue](https://github.com/yfstein/yfstein.github.io/issues/new) and let's chat!

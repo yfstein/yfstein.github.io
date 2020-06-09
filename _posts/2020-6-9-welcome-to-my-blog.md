@@ -1,3 +1,19 @@
+---
+layout:     post
+title:      Welcome to my blog
+date:       2020-06-07 06:31:19
+author:     yFStein
+summary:    
+categories: General
+thumbnail:  heart
+tags:
+ - tutorials
+ - blog
+ - devops
+---
+
+This ist just a bunch of some tutorials i wrote in the past or actually writing. Using them on own risk, they are tested to the date when i have wrote them. So just keep in mind to think before copy&paste commands to the shell.
+
 ## Questions?
 
 [Open an Issue](https://github.com/yfstein/yfstein.github.io/issues/new) and let's chat!

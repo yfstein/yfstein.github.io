@@ -1,0 +1,38 @@
+# Site settings
+title: "yFStein"
+email: info@meikelbloch.de
+description: "Linux DevOps."
+baseurl: ""
+url: "http://yfstein.github.io/"
+title_description: ""
+title_image: "https://raw.githubusercontent.com/yfstein/yfstein.github.io/master/images/yfstein.jpg"
+google_analytics: ""
+disqus_account:
+github_repository: https://github.com/yfstein/yfstein.github.io
+addthis_id:
+post_limit: 5
+
+# Social usernames/URLs
+twitter_username:
+github_username:  yfstein
+instagram_username:
+reddit_username:
+linkedin_link:
+google_plus_link:
+stackoverflow_link:
+xing_link:
+facebook_link:
+
+# Footer
+footer_left: "Made with <i class=\"fa fa-heart\"></i> by yFStein"
+footer_right: "Copyright 2020 by yFStein. All rights reserved."
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+exclude: [vendor]
