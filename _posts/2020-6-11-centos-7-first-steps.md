@@ -67,40 +67,42 @@ Just open the SSH config file: `nano /etc/ssh/sshd_config` and edit the followin
 
 change to a valid port above 1024 and remove the hash - in this case we change to 5876:
 
-`#Port 22`
+Find: `#Port 22`
 
-`Port 5876`
+Replace with: `Port 5876`
+
+So the default port scanner didnt reach your SSH Port 22 and eventually giving up for the first. That not means that nobody can do additional port scan to find your SSH Port. But basically its absolutely recommended to change the SSH port.
+
+So we have created the additional user "monty" so we dont need to use the root user to login directly over SSH. So wen can change the PermitRootLogin to no.
+
+Find: `#PermitRootLogin yes`
+
+Replace with: `PermitRootLogin no`
 
 
-change the "yes" to "no" and remove the hash:
+So now coming the part with the created AuthorizedKeysFile - here we will check if the line looks exactly like the following one:
 
-`#PermitRootLogin yes`
+Find and Check: `AuthorizedKeysFile .ssh/authorized_keys`
 
-`PermitRootLogin no`
+So the SSH Daemon can check everyones home folder for the directory .ssh with the authorized_keys file, where the public key for every user is stored by default.
 
+
+Because we want to login in the further with our public-key and not with a user-password we will deactivate the PasswordAuthentication:
+
+Find: `#PasswordAuthentication yes`
+
+Replace with: `PasswordAuthentication no`
+
+So now we coming to a point, where i am self everytime struggling. Should i turn it on, or should i turn it off. But in the last years i got very excited over turning the ChallenegeResponseAuthentication off. But why? So, for the first, i had some servers with a good income of traffic. We never had any corruption, "hacks" or anything like this. After a long internal discussion we decided to create some Honeypots and share the IPs. After just one week their we noted the first brake-in to the system. Sure, the honeypot wasnt secured well, but for testing purposed more than enough - so we decided for the first to still no turn on the ChallenegeResponseAuthentication.
 
 check that this line looks like this, mostly its already does:
+Find and Check: `ChallenegeResponseAuthentication no`
 
-`AuthorizedKeysFile .ssh/authorized_keys`
+So because we are here on command line and not graphical ui, we also dont need a function that anybody can connect over X11. So we will find and replace:
 
+Find: `#X11Forwarding yes`
 
-change the "yes" to "no" and remove the hash:
-
-`#PasswordAuthentication yes`
-
-`PasswordAuthentication no`
-
-
-check that this line looks like this, mostly its already does:
-
-`ChallenegeResponseAuthentication no`
-
-
-change the "yes" to "no" and remove the hash:
-
-`#X11Forwarding yes`
-
-`X11Forwarding no`
+Replace with: `X11Forwarding no`
 
 
 Now save and exit the file. After we created the changes to the sshd_config file, we need to restart the SSH Daemon:
