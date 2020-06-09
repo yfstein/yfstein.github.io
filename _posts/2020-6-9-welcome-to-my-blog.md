@@ -4,6 +4,7 @@ title:      Welcome to my blog
 date:       2020-06-07 06:31:19
 author:     yFStein
 summary:    
+categories: General
 thumbnail:  heart
 tags:
  - tutorials

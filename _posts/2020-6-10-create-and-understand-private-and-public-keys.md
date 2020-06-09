@@ -4,6 +4,7 @@ title:      Create and understand private and public keys
 date:       2020-06-08 12:32:27
 author:     yFStein
 summary:    
+categories: CentOS7
 thumbnail:  heart
 tags:
  - centos7
