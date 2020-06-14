@@ -21,11 +21,11 @@ In the last days we got a little problem after setup a CentOS 7 server, which se
 
 For the first we would take a look at our private key, which we are providing from our workplace to login with the SSH server. You should know where you have it placed to. In our case we had it recommended under the following path:
 
-~/.ssh/id_rsa
+`~/.ssh/id_rsa`
 
 So we will check if their is any BOM type or misspelling. Just to check it further, copy your key again to get safe that its the right one.
 
-sudo nano ~/.ssh/id_rsa
+`sudo nano ~/.ssh/id_rsa`
 
 If you have a Windows System it should be also placed under `C:\Users\YourUserName\.ssh\id_rsa`
 
@@ -54,8 +54,10 @@ To make sure just replace the key and check that their is no second line or any 
 
 To set the correct rights for the key an folder use the following commands:
 
+```
 chmod 600 ~/.ssh/authorized_keys
 chmod 700 ~/.ssh/
+```
 
 
 ## Conclusion
