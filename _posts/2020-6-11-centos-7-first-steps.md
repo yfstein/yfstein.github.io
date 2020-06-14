@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      CentOS 7 first steps!
-date:       2020-06-09 09:44:54
+date:       2020-06-11 09:44:54
 author:     yFStein
 summary:    First steps to do after installing a fresh CentOS7 cloud/vm server
 categories: CentOS7
