@@ -109,8 +109,11 @@ Now save and exit the file. After we created the changes to the sshd_config file
 
 `systemctl restart sshd`
 
+If you have SELinux enabled, you should now see, that the sshd not restarting. In this case we need to inform SELinux about the new SSH port:
 
-After that we should be able to login as monty with our private key over ssh port 5876.
+`semanage port -a -t ssh_port_t -p tcp 1234`
+
+Now you can try again to restart sshd service. After that we should be able to login as monty with our private key over ssh port 5876.
 
 
 ## Update the system
