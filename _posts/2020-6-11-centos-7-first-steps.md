@@ -114,7 +114,7 @@ If you have SELinux enabled, you should now see, that the sshd not restarting. I
 `semanage port -a -t ssh_port_t -p tcp 1234`
 
 Now you can try again to restart sshd service. After that we should be able to login as monty with our private key over ssh port 5876.
-
+Dont close the SSH session before you are able to login in another session window. Eventually firewalld is already preinstalled on the server and you need to take the firewalld steps before you are able to login to the server. Check the next steps to configure firewalld correctly.
 
 ## Update the system
 
